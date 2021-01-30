@@ -65,22 +65,29 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     conn.menu = conn.menu ? conn.menu : {}
     let before = conn.menu.before || `
 ╭════•›「 ${conn.getName(conn.user.jid)} 」
-╿  Hai, %name 👋
+╿  Hai, %name !
+╿ Total : *%exp XP*
+╿ Tersisa : *%limit Limit*
 ╿
-╿ Total: *%exp XP*
-╿ Tersisa *%limit Limit*
-╿
-╿ Tanggal: *%week, %date*
-╿ Waktu: *%time*
-╿
-╿ Uptime: *%uptime*
-╿ Database: %totalreg Nomor
-╿
-╿ Github:
-╿ https://github.com/Arya274/Arya-BOT3
-╿ Youtube: 
-╿ https://youtube.com/c/DrawlNag
+╿ Hari : *%week
+╿ Tanggal : *%date*
+╿ Waktu : *%time*
+╿ Lama Aktif : *%uptime*
+╿ Database : %totalreg Nomor
 ╰═══════════════
+
+╭════•›「 Sosmed 」
+╿ Github :
+╿ https://github.com/Arya274/Arya-BOT3
+╿ Youtube : Drawl Nag
+╿ Instagram : @arpunchs
+╰═══════════════
+
+╭════•›「 Rules 」
+╿• Telpon/VC = BAN
+╿• Spam = BAN
+╰═══════════════
+
 %readmore`
     let header = conn.menu.header || '╭════•›「 %category 」'
     let body   = conn.menu.body   || '╿ %cmd%islimit'
