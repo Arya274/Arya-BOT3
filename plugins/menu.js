@@ -69,7 +69,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 ╿ Total : *%exp XP*
 ╿ Tersisa : *%limit Limit*
 ╿
-╿ Hari : *%week
+╿ Hari : *%week*
 ╿ Tanggal : *%date*
 ╿ Waktu : *%time*
 ╿ Lama Aktif : *%uptime*
