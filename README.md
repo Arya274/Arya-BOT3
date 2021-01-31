@@ -1,4 +1,4 @@
-# wabot-aq
+# Drawl Nag
 Simple WhatsApp Bot
 
 ### FOR TERMUX USER
@@ -33,3 +33,6 @@ Simple WhatsApp Bot
 ```bash
 > node index.js
 ```
+
+# Recode: @arpunchs
+Bye: @Nurutomo
