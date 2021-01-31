@@ -7,7 +7,7 @@ CFonts.say('TERMUX WHATSAPP BOT', {
   align: 'center',
   gradient: ['red', 'magenta']
 })
-CFonts.say('\'wabot-aq\' By @Nurutomo', {
+CFonts.say('\'Youtube:\' Drawl Nag', {
   font: 'console',
   align: 'center',
   gradient: ['red', 'magenta']
