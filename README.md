@@ -1,4 +1,4 @@
-# wabot-aq
+# Drawl Nag
 Simple WhatsApp Bot
 
 ### FOR TERMUX USER
