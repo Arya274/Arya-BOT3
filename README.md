@@ -1,4 +1,4 @@
-# Drawl Nag
+# Drawl Nag 📲
 Simple WhatsApp Bot
 
 ### FOR TERMUX USER
