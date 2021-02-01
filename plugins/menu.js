@@ -65,27 +65,27 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     conn.menu = conn.menu ? conn.menu : {}
     let before = conn.menu.before || `
 ╭════•›「 ${conn.getName(conn.user.jid)} 」
-╿  Hai, %name !
+╿  Olá, %name !
 ╿ Total : *%exp XP*
-╿ Tersisa : *%limit Limit*
+╿ Remanescente : *%limit Limit*
 ╿
-╿ Hari : *%week*
-╿ Tanggal : *%date*
-╿ Waktu : *%time*
-╿ Lama Aktif : *%uptime*
-╿ Database : %totalreg Nomor
+╿ Dia : *%week*
+╿ Encontro : *%date*
+╿ Tempo : *%time*
+╿ Antigo Ativo : *%uptime*
+╿ Base de dados : %totalreg Nomor
 ╰═══════════════
 
-╭════•›「 Sosmed 」
-╿ Github :
-╿ https://github.com/Arya274/Arya-BOT3
-╿ Youtube : Drawl Nag
-╿ Instagram : @arpunchs
+╭════•›「 ATENÇÃO 」
+╿ ENTREM AI
+╿ https://chat.whatsapp.com/EysulSnl9WcEeF2bQbN3Bj
+╿ 
+╿ wa.me/+556392445315
 ╰═══════════════
 
-╭════•›「 Rules 」
+╭════•›「 REGRAS 」
 ╿• Telpon/VC = BAN
-╿• Spam = BAN
+╿• Flodar o bot = BAN
 ╰═══════════════
 
 %readmore`
