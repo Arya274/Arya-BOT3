@@ -11,9 +11,9 @@ let util = require('util')
 let WAConnection = simple.WAConnection(_WAConnection)
 
 
-global.owner = ['6281357302007@s.whatsapo.net'] // Put your number here
-global.mods = ['6281357302007@s.whatsapp.net'] // Want some help?
-global.prems = ['6281357302007@s.whatsapp.net'] // Premium user has unlimited limit
+global.owner = ['6281515860089','6281357302007','6288235435804'] // Put your number here
+global.mods = ['6281357302007','6288235435804''] // Want some help?
+global.prems = ['6281357302007','6288235435804'] // Premium user has unlimited limit
 
 
 global.timestamp = {
@@ -53,7 +53,7 @@ setInterval(async () => {
   if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('Database is up to date')
   else {
     global.DATABASE.save()
-    conn.logger.info('Done saving database!')
+    conn.logger.info('Done saving database, YouTube: Drawl Nag!')
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
 }, 60 * 1000) // Save every minute
@@ -223,7 +223,7 @@ conn.handler = async function (m) {
   }
 }
 conn.welcome = 'Hai, @user!\nSelamat datang di grup @subject'
-conn.bye = 'Selamat tinggal @user!'
+conn.bye = 'Selamat tinggal @user!\nSelamat jalan di grup @subject'
 conn.onAdd = async function ({ m, participants }) {
   let chat = global.DATABASE._data.chats[m.key.remoteJid]
   if (!chat.welcome) return
@@ -287,9 +287,9 @@ conn.on('close', async () => {
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'Perintag ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
+    rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER BOT!*_',
     owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
+    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator Bot*_ !',
     premium: 'Perintah ini hanya untuk member _*Premium*_ !',
     group: 'Perintah ini hanya dapat digunakan di grup!',
     private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
