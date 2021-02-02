@@ -35,3 +35,4 @@ Simple WhatsApp Bot
 ```
 
 # Recode: Drawl Nag
+Script: @Nurutomo
