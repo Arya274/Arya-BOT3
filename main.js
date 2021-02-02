@@ -64,7 +64,7 @@ setInterval(async () => {
   if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('Database is up to date')
   else {
     global.DATABASE.save()
-    conn.logger.info('Done saving database, YouTube: Drawl Nag!')
+    conn.logger.info('Done saving database,YouTube: Drawl Nag!')
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
 }, 60 * 1000) // Save every minute
