@@ -35,6 +35,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let totalreg = Object.keys(global.DATABASE._data.users).length
     let tags = {
       'main': 'Main',
+      'info': 'Info BOT',
       'xp': 'Exp & Limit',
       'sticker': 'Sticker',
       'kerang': 'Kerang Ajaib',
@@ -49,7 +50,6 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       'owner': 'Owner',
       'host': 'Host',
       'advanced': 'Advanced',
-      'info': 'Info',
       '': 'No Category',
     }
     for (let plugin of Object.values(global.plugins))
