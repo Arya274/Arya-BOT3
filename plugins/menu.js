@@ -22,11 +22,19 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       second: 'numeric'
     })
     let _uptime = process.uptime() * 1000
+    let _muptime
+    if (process.send) {
+      process.send('uptime')
+      _muptime = await new Promise(resolve => {
+        process.once('message', resolve)
+        setTimeout(resolve, 1000)
+      }) * 1000
+    }
+    let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
     let totalreg = Object.keys(global.DATABASE._data.users).length
     let tags = {
       'main': 'Main',
-      'info': 'Info BOT',
       'xp': 'Exp & Limit',
       'sticker': 'Sticker',
       'kerang': 'Kerang Ajaib',
@@ -41,6 +49,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       'owner': 'Owner',
       'host': 'Host',
       'advanced': 'Advanced',
+      'info': 'Info',
       '': 'No Category',
     }
     for (let plugin of Object.values(global.plugins))
@@ -84,15 +93,17 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 ╰═══════════════
 
 ╭════•›「 Rules 」
-╿• Telpon/VC = BAN
-╿• Spam = BAN
+╿• Telpon/VC = BAN/BLOKIR
+╿• Spam = BLOKIR
+╿• Ingin Donasi ?
+╿    => Hubungi #creator
 ╰═══════════════
 
 %readmore`
     let header = conn.menu.header || '╭════•›「 %category 」'
-    let body   = conn.menu.body   || '╿ %cmd%islimit'
-    let footer = conn.menu.footer || '╰═══════════════\n'
-    let after  = conn.menu.after  || (conn.user.jid == global.conn.user.jid ? '' : `Powered by: ${global.conn.user.jid.split`@`[0]}`) + `\n*%npmname@^%version*\n\`\`\`\%npmdesc\`\`\``
+    let body   = conn.menu.body   || ' ╿ %cmd%islimit'
+    let footer = conn.menu.footer || '╰══════════\n'
+    let after  = conn.menu.after  || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + `\n*%npmname@^%version*\n\`\`\`\%npmdesc\`\`\``
     let _text  = before + '\n'
     for (let tag in groups) {
       _text += header.replace(/%category/g, tags[tag]) + '\n'
@@ -106,7 +117,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     text =  typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
     let replace = {
       '%': '%',
-      p: _p, uptime,
+      p: _p, uptime, muptime,
       npmname: package.name,
       npmdesc: package.description,
       version: package.version,
@@ -142,9 +153,8 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function clockString(ms) {
-  let h = Math.floor(ms / 3600000)
-  let m = Math.floor(ms / 60000) % 60
-  let s = Math.floor(ms / 1000) % 60
-  console.log({ms,h,m,s})
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
