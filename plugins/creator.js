@@ -1,6 +1,6 @@
 let handler = function (m) {
   // this.sendContact(m.chat, '6281357302007', 'Drawl Nag Admin', m)
-  this.sendContact(m.chat, '0', 'Insert Owner Number Here', m)
+  this.sendContact(m.chat, '6281357302007', 'Admin DrawlNag', m)
 }
 handler.help = ['owner', 'creator']
 handler.tags = ['info']
