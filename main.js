@@ -11,12 +11,14 @@ let fs = require('fs')
 let path = require('path')
 let util = require('util')
 let { spawnSync } = require('child_process')
+let Readline = require('readline')
+let rl = Readline.createInterface(process.stdin, process.stdout)
 let WAConnection = simple.WAConnection(_WAConnection)
 
 
 global.owner = ['6281515860089','6281357302007','6288235435804'] // Put your number here
-global.mods = ['6281357302007','6288235435804'] // Want some help?
-global.prems = ['6281357302007','6288235435804'] // Premium user has unlimited limit
+global.mods = [] // Want some help?
+global.prems = [] // Premium user has unlimited limit
 global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
@@ -64,12 +66,12 @@ if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: 
 if (opts['server']) conn.on('qr', qr => { global.qr = qr })
 conn.on('credentials-updated', () => fs.writeFileSync(authFile, JSON.stringify(conn.base64EncodedAuthInfo())))
 let lastJSON = JSON.stringify(global.DATABASE.data)
-setInterval(async () => {
+if (!opts['test']) setInterval(() => {
   conn.logger.info('Saving database . . .')
   if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('Database is up to date')
   else {
     global.DATABASE.save()
-    conn.logger.info('Done saving database,YouTube: Drawl Nag')
+    conn.logger.info('Done saving database,YouTube: Drawl Nag!')
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
 }, 60 * 1000) // Save every minute
@@ -220,7 +222,7 @@ conn.handler = async function (m) {
           // Error occured
           m.error = e
           console.log(e)
-          m.reply(util.format(e))
+          if (e) m.reply(util.format(e))
         } finally {
           if (m.limit) m.reply(+ m.limit + ' Limit terpakai')
         }
@@ -346,7 +348,7 @@ conn.on('close', () => {
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!*_',
+    rowner: 'Perintag ini hanya dapat digunakan oleh _*OWWNER!*_',
     owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
     mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
     premium: 'Perintah ini hanya untuk member _*Premium*_ !',
@@ -364,6 +366,7 @@ if (opts['test']) {
     name: 'test',
     phone: {}
   }
+  conn.chats
   conn.prepareMessageMedia = (buffer, mediaType, options = {}) => {
     return {
       [mediaType]: {
@@ -387,11 +390,11 @@ if (opts['test']) {
     if (type == 'conversation') waMessage.key.id = require('crypto').randomBytes(16).toString('hex').toUpperCase()
     conn.emit('message-new', waMessage)
   }
-  process.stdin.on('data', chunk => conn.sendMessage('123@s.whatsapp.net', chunk.toString().trimEnd(), 'conversation'))
+  rl.on('line', line => conn.sendMessage('123@s.whatsapp.net', line.trim(), 'conversation'))
 } else {
-  process.stdin.on('data', chunk => {
+  rl.on('line', line => {
     global.DATABASE.save()
-    process.send(chunk.toString().trimEnd())
+    process.send(line.trim())
   })
   conn.connect().then(() => {
     global.timestamp.connect = new Date
