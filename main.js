@@ -16,7 +16,7 @@ let rl = Readline.createInterface(process.stdin, process.stdout)
 let WAConnection = simple.WAConnection(_WAConnection)
 
 
-global.owner = ['6281515860089','6281357302007','6288235435804'] // Put your number here
+global.owner = ['6281515860089','6288235435804','6281357302007'] // Put your number here
 global.mods = [] // Want some help?
 global.prems = [] // Premium user has unlimited limit
 global.APIs = { // API Prefix
@@ -80,7 +80,7 @@ const isNumber = x => typeof x === 'number' && !isNaN(x)
 conn.handler = async function (m) {
   try {
   	simple.smsg(this, m)
-    m.exp = 0
+    m.exp = 2
     m.limit = false
     try {
       let user
@@ -151,8 +151,8 @@ conn.handler = async function (m) {
         let participants = m.isGroup ? groupMetadata.participants : []
         let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {} // User Data
         let bot = m.isGroup ? participants.find(u => u.jid == this.user.jid) : {} // Your Data
-        let isAdmin = user.isAdmin || user.isSuperAdmin || false // Is User Admin?
-        let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false // Are you Admin?
+        let isAdmin = user.isAdmin || user.isSuperAdmin || true // Is User Admin?
+        let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || true // Are you Admin?
         if (m.chat in global.DATABASE._data.chats) {
           let chat = global.DATABASE._data.chats[m.chat]
           if (name != 'unbanchat.js' && chat && chat.isBanned) return // Except this
@@ -224,7 +224,7 @@ conn.handler = async function (m) {
           console.log(e)
           if (e) m.reply(util.format(e))
         } finally {
-          if (m.limit) m.reply(+ m.limit + ' Limit terpakai')
+          if (m.limit) m.reply(+ m.limit + ' Limit terpakai, Mangkane ojok nyepam.. isok ae" boros paketan')
         }
   			break
   		}
@@ -269,7 +269,7 @@ conn.handler = async function (m) {
     }
   }
 }
-conn.welcome = 'Hai, @user!\nSelamat datang di grup @subject'
+conn.welcome = 'Hai, @user!\nSelamat datang di grup @subject\n\nJika sudah bantu follow kami..\nDi *Instagram:* @arpunchs\nDan Youtube: *Drawl Nag*'
 conn.bye = 'Selamat tinggal @user!'
 conn.onAdd = async function ({ m, participants }) {
   let chat = global.DATABASE._data.chats[m.key.remoteJid]
