@@ -39,7 +39,7 @@ Script: @Nurutomo
 
 # Versi 4
 Saya sambungkan ke Script Arya-BOT3. Biar gak capek nambah github. Dan nanti ada fitur terbaru
-Tatap support kami ya verguso.:v
+Tatap support kami ya verguso. Di Youtube: Drawl Nag. Dan Instagram: @arpunchs
 <img src="https://raw.githubusercontent.com/TheDudeThatCode/TheDudeThatCode/master/Assets/Mario_Gameplay.gif"/>
 
 </p>
