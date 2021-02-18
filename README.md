@@ -37,6 +37,9 @@ Simple WhatsApp Bot
 # Recode: Drawl Nag
 Script: @Nurutomo
 
+# Versi 4
+saya sambungkan ke ini Script
+
 <img src="https://raw.githubusercontent.com/TheDudeThatCode/TheDudeThatCode/master/Assets/Mario_Gameplay.gif"/>
 
 </p>
