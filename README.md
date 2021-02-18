@@ -38,7 +38,7 @@ Simple WhatsApp Bot
 Script: @Nurutomo
 
 # Versi 4
-saya sambungkan ke Script Arya-BOT3. Biar gak capek nambah github. Dan nanti ada fitur terbaru
+Saya sambungkan ke Script Arya-BOT3. Biar gak capek nambah github. Dan nanti ada fitur terbaru
 
 <img src="https://raw.githubusercontent.com/TheDudeThatCode/TheDudeThatCode/master/Assets/Mario_Gameplay.gif"/>
 
