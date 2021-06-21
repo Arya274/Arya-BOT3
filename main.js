@@ -1,4 +1,4 @@
-let { WAConnection: _WAConnection, WA_MESSAGE_STUB_TYPES } = require('@adiwajshing/baileys')
+let { WAConnection: _WAConnection, WA_MESSAGE_STUB_TYPES } = require('@adiwajshing/2,2119,6')
 let { generate } = require('qrcode-terminal')
 let qrcode = require('qrcode')
 let simple = require('./lib/simple')
